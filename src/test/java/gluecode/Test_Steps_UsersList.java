@@ -9,7 +9,7 @@ import org.testng.Assert;
 import static io.restassured.RestAssured.*;
 
 public class Test_Steps_UsersList {
-    @Given("^I want to execute getUsersList endpoint$")
+    @Given("^I want to execute List Users endpoint$")
     public void step1() {
         baseURI = "https://reqres.in";
         basePath = "/api/users/2";
