@@ -26,6 +26,7 @@ public class Test_Steps_Login_Successful {
     @Then("^I should get token$")
     public void step3(){
         Response response = Methods.responsePost();
-        if (response != null) System.out.println(response.asString());
+        Assert.assertNotEquals(response, null);
+        System.out.println(response.asString());
     }
 }
