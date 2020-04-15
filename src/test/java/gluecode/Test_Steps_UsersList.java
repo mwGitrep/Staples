@@ -11,21 +11,22 @@ import static io.restassured.RestAssured.*;
 
 public class Test_Steps_UsersList {
     @Given("^I want to execute getUsersList endpoint$")
-    public void method1()throws Throwable{
-        RestAssured.baseURI = "https://reqres.in";
-        RestAssured.basePath = "/api";
+    public void step1() {
+        baseURI = "https://reqres.in";
+        basePath = "/api/users/2";
     }
 
     @When("^I submit the GET request$")
-    public void method2()throws Throwable{
-        get(baseURI + basePath + "/users/2");
+    public void step2() {
+        Assert.assertEquals(get(baseURI + basePath).statusCode(), 200);
     }
 
     @Then("^I should get 200 Success Status code$")
-    public void method3(){
-        Response response = get(baseURI + basePath + "/users/2");
+    public void step3(){
+        Response response = get(baseURI + basePath);
         int statuscode = response.getStatusCode();
         Assert.assertEquals(statuscode,200);
+
         System.out.println(statuscode);
     }
 }
